@@ -1,20 +1,47 @@
 version: '3.9'
 services:
   nitro:
-    image: offchainlabs/nitro-node:v2.3.3-6a1c1a7
+    image: offchainlabs/nitro-node:v2.3.4-b4cc111
+    user: root
     ports:
       - "127.0.0.1:8449:8449"
     volumes:
-      - "./config:/home/user/.arbitrum"
+      - "/home/hyra/orbit-setup-script/config:/home/user/.arbitrum"
     command: --conf.file /home/user/.arbitrum/nodeConfig.json
 
-  das-server:
-    image: offchainlabs/nitro-node:v2.3.3-6a1c1a7
-    entrypoint: [ "/bin/bash", "/das-server.sh" ]
-    volumes:
-      - "./config:/home/user/.arbitrum"
-      - "./das-server.sh:/das-server.sh"
-      - "./das-data:/home/user/das-data"
-    ports:
-      - "9876:9876"
-      - "9877:9877"
+  # das-server:
+  #   image: offchainlabs/nitro-node:v2.3.4-b4cc111
+  #   user: root
+  #   entrypoint: [ "/bin/bash", "/das-server.sh" ]
+  #   volumes:
+  #     - "/home/hyra/orbit-setup-script/config:/home/user/.arbitrum"
+  #     - "/home/hyra/orbit-setup-script/das-server.sh:/das-server.sh"
+  #     - "/home/hyra/orbit-setup-script/das-data:/home/user/das-data"
+  #   ports:
+  #     - "9876:9876"
+  #     - "9877:9877"
+
+
+
+
+
+# version: '3.9'
+# services:
+#   nitro:
+#     image: offchainlabs/nitro-node:v2.3.3-6a1c1a7
+#     ports:
+#       - "127.0.0.1:8449:8449"
+#     volumes:
+#       - "/home/hyra/config:/home/user/.arbitrum"
+#     command: --conf.file /home/user/.arbitrum/nodeConfig.json
+
+#   das-server:
+#     image: offchainlabs/nitro-node:v2.3.3-6a1c1a7
+#     entrypoint: [ "/bin/bash", "/das-server.sh" ]
+#     volumes:
+#       - "/home/hyra/config:/home/user/.arbitrum"
+#       - "/home/hyra/das-server.sh:/das-server.sh"
+#       - "/home/hyra/das-data:/home/user/das-data"
+#     ports:
+#       - "9876:9876"
+#       - "9877:9877"
