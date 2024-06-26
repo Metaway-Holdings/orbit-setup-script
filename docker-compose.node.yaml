@@ -1,12 +1,20 @@
 version: '3.9'
 services:
-  nitro:
-    image: offchainlabs/nitro-node:v3.0.1-cf4b74e-validator
+  hyperasnode:
+    image: offchainlabs/nitro-node:v2.3.4-b4cc111
     ports:
-      - "127.0.0.1:8449:8449"
+      - "8547:8547"
+      - "8548:8548"
+      - "8642:9642"
     volumes:
       - "./config:/home/user/.arbitrum"
-    command: --conf.file /home/user/.arbitrum/nodeConfig.json
+    command: --parent-chain.connection.url=rpc-orbit.hyperaschain.com --chain.info-json=outputInfo.json --chain.name=Hyperas --node.data-availability.enable --node.data-availability.rest-aggregator.urls=das-orbit.hyperaschain.com
+
+
+
+
+
+
 
   # das-server:
   #   image: offchainlabs/nitro-node:v2.3.3-6a1c1a7
