@@ -2,7 +2,7 @@
 
 # Stop and remove all containers, including volumes
 sudo docker-compose down
-sudo docker-compose up
+# sudo docker-compose up
 # Check if there are any containers to remove
 if [ "$(sudo docker ps -qa)" ]; then
 	    # Try to stop all containers first
